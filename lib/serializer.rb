@@ -127,3 +127,5 @@ module Serializer
     end
   end
 end
+
+require 'serializer/railtie' if defined?(Rails)
