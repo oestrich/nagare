@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    serializer (0.1.0)
+    nagare (0.1.0)
       activesupport (~> 4.0)
 
 GEM
@@ -38,8 +38,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  nagare!
   rspec (~> 3.0)
-  serializer!
 
 BUNDLED WITH
    1.11.2

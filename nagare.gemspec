@@ -2,14 +2,14 @@ lib = File.expand_path('../lib/', __FILE__)
 $:.unshift lib unless $:.include?(lib)
 
 Gem::Specification.new do |s|
-  s.name        = "serializer"
+  s.name        = "nagare"
   s.version     = "0.1.0"
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Eric Oestrich"]
   s.email       = ["eric@oestrich.org"]
   s.summary     = "Serialize your ruby objects"
   s.description = "Serialize your ruby objects"
-  s.homepage    = "http://github.com/oestrich/serializer"
+  s.homepage    = "http://github.com/oestrich/nagare"
   s.license     = "MIT"
 
   s.required_rubygems_version = ">= 1.3.6"

@@ -1,7 +1,7 @@
 require 'active_support'
 require 'active_support/core_ext'
 
-module Serializer
+module Nagare
   class Item
     def self._attributes
       @attributes ||= []
@@ -128,4 +128,4 @@ module Serializer
   end
 end
 
-require 'serializer/railtie' if defined?(Rails)
+require 'nagare/railtie' if defined?(Rails)

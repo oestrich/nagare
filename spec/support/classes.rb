@@ -1,7 +1,7 @@
 class Model < Struct.new(:id, :name)
 end
 
-class ModelSerializer < Serializer::Item
+class ModelSerializer < Nagare::Item
   attributes :id, :name, :extra
 
   def extra
@@ -9,7 +9,7 @@ class ModelSerializer < Serializer::Item
   end
 end
 
-class ModelSerializer < Serializer::Item
+class ModelSerializer < Nagare::Item
   attributes :id, :name, :extra
 
   def extra
@@ -17,7 +17,7 @@ class ModelSerializer < Serializer::Item
   end
 end
 
-class ModelsSerializer < Serializer::Collection
+class ModelsSerializer < Nagare::Collection
   key "models"
 
   attributes :extra

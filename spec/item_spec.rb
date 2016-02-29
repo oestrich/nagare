@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Serializer::Item do
+describe Nagare::Item do
   let(:model) { Model.new(10, "name") }
-  let(:context) { Serializer::Context.new }
+  let(:context) { Nagare::Context.new }
   let(:serializer) { ModelSerializer.new(model, context) }
 
   specify "as_json includes all attributes" do
@@ -14,7 +14,7 @@ describe Serializer::Item do
   end
 
   specify "can use the context" do
-    context = Serializer::Context.new(:user => "user")
+    context = Nagare::Context.new(:user => "user")
     serializer = ModelSerializer.new(model, context)
 
     expect(serializer.user).to eq("user")

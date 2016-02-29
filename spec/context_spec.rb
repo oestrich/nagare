@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Serializer::Context do
+describe Nagare::Context do
   specify "creates methods for each attribute" do
-    context = Serializer::Context.new({
+    context = Nagare::Context.new({
       :user => "user",
     })
 
@@ -11,7 +11,7 @@ describe Serializer::Context do
   end
 
   specify "can extend the context for a new context" do
-    context = Serializer::Context.new({
+    context = Nagare::Context.new({
       :user => "user",
     })
 

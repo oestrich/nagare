@@ -1,13 +1,13 @@
-module Serializer
+module Nagare
   module Controller
     private
 
-    def serializer_adapter
-      Serializer::Adapter
+    def nagare_adapter
+      Nagare::Adapter
     end
 
-    def serializer_context
-      @serializer_context ||= Serializer::Context.new
+    def nagare_context
+      @nagare_context ||= Nagare::Context.new
     end
 
     def _render_with_renderer_json(resource, options)
@@ -22,21 +22,21 @@ module Serializer
         item_serializer = serializers.fetch(:item)
 
         serializer = collection_serializer.
-          new(resource, serializer_context.extend(options.fetch(:context, {})), serializer: item_serializer)
+          new(resource, nagare_context.extend(options.fetch(:context, {})), serializer: item_serializer)
       else
         item_serializer = serializers.fetch(:item)
 
-        serializer = item_serializer.new(resource, serializer_context.extend(options.fetch(:context, {})))
+        serializer = item_serializer.new(resource, nagare_context.extend(options.fetch(:context, {})))
       end
 
-      super(serializer_adapter.new(serializer), options)
+      super(nagare_adapter.new(serializer), options)
     end
   end
 
   class Railtie < Rails::Railtie
-    initializer "serializer.action_controller" do
+    initializer "nagare.action_controller" do
       ActiveSupport.on_load(:action_controller) do
-        include Serializer::Controller
+        include Nagare::Controller
       end
     end
   end

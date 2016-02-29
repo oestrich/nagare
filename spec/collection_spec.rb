@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Serializer::Collection do
+describe Nagare::Collection do
   let(:model) { Model.new(10, "name") }
-  let(:context) { Serializer::Context.new }
+  let(:context) { Nagare::Context.new }
 
   let(:serializer) { ModelsSerializer.new([model], context, serializer: ModelSerializer) }
 
@@ -28,7 +28,7 @@ describe Serializer::Collection do
   end
 
   specify "has access to the context" do
-    context = Serializer::Context.new(:user => "user")
+    context = Nagare::Context.new(:user => "user")
     serializer = ModelsSerializer.new([model], context, serializer: ModelSerializer)
 
     expect(serializer.user).to eq("user")
