@@ -1,5 +1,7 @@
 # nagare
 
+[![Build Status](https://travis-ci.org/oestrich/nagare.svg?branch=master)](https://travis-ci.org/oestrich/nagare)
+
 Nagare is a simple serializer for your Rails API.
 
 ## Installation
