@@ -23,13 +23,15 @@ module Nagare
 
         serializer = collection_serializer.
           new(resource, nagare_context.extend(options.fetch(:context, {})), serializer: item_serializer)
+        adapter = nagare_adapter.new(serializer, collection: true)
       else
         item_serializer = serializers.fetch(:item)
 
         serializer = item_serializer.new(resource, nagare_context.extend(options.fetch(:context, {})))
+        adapter = nagare_adapter.new(serializer, collection: false)
       end
 
-      super(nagare_adapter.new(serializer), options)
+      super(adapter, options)
     end
   end
 

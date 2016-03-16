@@ -19,4 +19,9 @@ describe Nagare::Adapter do
       ],
     })
   end
+
+  specify "allows hint that serializer is a collection" do
+    adapter = Nagare::Adapter.new(serializer, collection: true)
+    expect(adapter.send(:collection)).to be_truthy
+  end
 end

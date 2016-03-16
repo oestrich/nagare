@@ -92,8 +92,9 @@ module Nagare
   end
 
   class Adapter
-    def initialize(serializer)
+    def initialize(serializer, collection: false)
       @serializer = serializer
+      @collection = collection
     end
 
     def as_json(options = nil)
@@ -102,7 +103,7 @@ module Nagare
 
     private
 
-    attr_reader :serializer
+    attr_reader :serializer, :collection
   end
 
   class Context
