@@ -76,8 +76,8 @@ module Nagare
     end
 
     def as_json(options = nil)
-      items = collection.map do |item|
-        serializer.new(item, context).as_json
+      items = map do |item|
+        item.as_json
       end
 
       attributes.merge({
