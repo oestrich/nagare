@@ -14,6 +14,8 @@ module Nagare
         define_method(attribute) do
           if object.respond_to?(attribute)
             object.send(attribute)
+          elsif context.respond_to?(attribute)
+            context.send(attribute)
           end
         end
       end

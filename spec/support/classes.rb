@@ -10,7 +10,7 @@ class ModelSerializer < Nagare::Item
 end
 
 class ModelSerializer < Nagare::Item
-  attributes :id, :name, :extra
+  attributes :id, :name, :extra, :href
 
   def extra
     "extra"

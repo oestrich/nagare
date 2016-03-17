@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Nagare::Item do
   let(:model) { Model.new(10, "name") }
-  let(:context) { Nagare::Context.new }
+  let(:context) { Nagare::Context.new(href: "href") }
   let(:serializer) { ModelSerializer.new(model, context) }
 
   specify "as_json includes all attributes" do
@@ -10,6 +10,7 @@ describe Nagare::Item do
       "id" => 10,
       "name" => "name",
       "extra" => "extra",
+      "href" => "href",
     })
   end
 
@@ -18,6 +19,10 @@ describe Nagare::Item do
     serializer = ModelSerializer.new(model, context)
 
     expect(serializer.user).to eq("user")
+  end
+
+  specify "includes context if an attribute in the json" do
+    expect(serializer.as_json["href"]).to eq("href")
   end
 
   specify "passes on methods to sub model" do
