@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    nagare (0.1.0)
+    nagare (1.0.0)
       activesupport (~> 4.0)
 
 GEM
