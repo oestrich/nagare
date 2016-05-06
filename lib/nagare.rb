@@ -117,6 +117,10 @@ module Nagare
       Context.new(@attributes.merge(attributes))
     end
 
+    def [](key)
+      @attributes[key]
+    end
+
     def respond_to?(key, private_methods = false)
       @attributes.has_key?(key) || super
     end
@@ -124,8 +128,6 @@ module Nagare
     def method_missing(method)
       if @attributes.has_key?(method)
         @attributes.fetch(method)
-      else
-        super
       end
     end
   end

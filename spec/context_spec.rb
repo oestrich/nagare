@@ -10,6 +10,14 @@ describe Nagare::Context do
     expect(context.user).to eq("user")
   end
 
+  specify "accessible via keys" do
+    context = Nagare::Context.new({
+      "user" => "user",
+    })
+
+    expect(context["user"]).to eq("user")
+  end
+
   specify "can extend the context for a new context" do
     context = Nagare::Context.new({
       :user => "user",
