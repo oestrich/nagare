@@ -9,6 +9,9 @@ class ModelSerializer < Nagare::Item
   end
 end
 
+class SubModelSerializer < ModelSerializer
+end
+
 class ModelSerializer < Nagare::Item
   attributes :id, :name, :extra, :href
 

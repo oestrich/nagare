@@ -34,4 +34,8 @@ describe Nagare::Item do
     expect(serializer.extra).to eq("extra")
     expect(serializer.as_json["extra"]).to eq("extra")
   end
+
+  specify "handles subclassing" do
+    expect(SubModelSerializer._attributes).to eq([:id, :name, :extra])
+  end
 end

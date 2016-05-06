@@ -21,6 +21,12 @@ module Nagare
       end
     end
 
+    def self.inherited(base)
+      base.instance_variable_set(:@attributes, @attributes.dup) if @attributes
+
+      super
+    end
+
     def initialize(object, context)
       @object = object
       @context = context
