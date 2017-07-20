@@ -38,4 +38,18 @@ describe Nagare::Item do
   specify "handles subclassing" do
     expect(SubModelSerializer._attributes).to eq([:id, :name, :extra])
   end
+
+  specify "options allow nil" do
+    model = Model.new(nil, "name")
+    serializer = ModelNilSerializer.new(model, context)
+
+    expect(serializer.as_json).to eq({"id" => nil, "name" => "name"})
+  end
+
+  specify "subclass options don't alter the superclass" do
+    model = Model.new(nil, "name")
+    serializer = SubModelNotNilSerializer.new(model, context)
+
+    expect(serializer.as_json).to eq({"name" => "name"})
+  end
 end

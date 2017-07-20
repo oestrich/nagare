@@ -1,4 +1,10 @@
-class Model < Struct.new(:id, :name)
+class Model
+  attr_reader :id, :name
+
+  def initialize(id, name)
+    @id = id
+    @name = name
+  end
 end
 
 class ModelSerializer < Nagare::Item
@@ -28,4 +34,14 @@ class ModelsSerializer < Nagare::Collection
   def extra
     "extra"
   end
+end
+
+class ModelNilSerializer < Nagare::Item
+  attributes :id, :name
+
+  options nil: true
+end
+
+class SubModelNotNilSerializer < ModelNilSerializer
+  options nil: false
 end

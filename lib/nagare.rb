@@ -27,16 +27,30 @@ module Nagare
       super
     end
 
+    def self._options
+      @options ||= {}
+    end
+
+    def self.options(options)
+      @options = options
+    end
+
     def initialize(object, context)
       @object = object
       @context = context
     end
 
     def attributes
-      self.class._attributes.inject({}) do |hash, attribute|
+      attributes = self.class._attributes.inject({}) do |hash, attribute|
         hash[attribute.to_s] = send(attribute)
         hash
-      end.compact
+      end
+
+      if !self.class._options.fetch(:nil, false)
+        attributes.compact
+      else
+        attributes
+      end
     end
 
     def method_missing(key, *args)
